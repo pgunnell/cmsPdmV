@@ -24,10 +24,11 @@ var buildHTMLPlugin = function(filename){
 module.exports = [{
     devtool: '#eval-source-map',
     entry: {
-      settings:  ['./scripts2/settings.js'],
-      news:  ['./scripts2/news.js']
+      settings:  ['./vue_components/settings.js'],
+      news:  ['./vue_components/news.js']
     },
     output: {
+        // non-existing dir name as files will be stored in memory
         path: path.resolve(__dirname, '/scripts3'),
         filename: '[name].js'
     },
@@ -63,7 +64,7 @@ module.exports = [{
     }
   },
   devServer: {
-    contentBase: __dirname + '/scripts2',
+    contentBase: __dirname + '/vue_components',
     disableHostCheck : true,
     historyApiFallback: true,
     noInfo: false,

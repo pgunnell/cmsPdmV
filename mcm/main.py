@@ -105,7 +105,7 @@ def mccms_html():
 
 @app.route('/settings')
 def settings_html():
-    return send_from_directory('HTML', 'settings.html')
+    return send_from_directory('html2', 'settings.html')
 
 @app.route('/invalidations')
 def invalidations_html():
