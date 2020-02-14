@@ -1495,13 +1495,13 @@ class request(json_base):
         # no need for directory traversal (parent stays unaffected)
 
 
-        if for_validation:
+        if for_validation and self.get_attribute('validation')['valid']:
                
-               infile += 'cmsDriver step3 --python_file harvest.py --no_exec --conditions %s --filein file: %s -s HARVESTING:genHarvesting --harvesting AtRunEnd --filetype DQM --mc -n -1\n' % (self.get_attribute('sequences')[sequence_index]["conditions"], output_file)
+               infile += 'cmsDriver step3 --python_file harvest.py --no_exec --conditions %s --filein file: %s -s HARVESTING:genHarvesting --harvesting AtRunEnd --filetype DQM --mc -n -1\n' % (self.get_attribute('sequences')[0]["conditions"], output_file)
                infile += 'cmsRun harvest.py\n'
 
                #Example: RelValDYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8__CMSSW_10_6_5-106X_mc2017_realistic_v6-v1__DQMIO.root
-               filename_dqm = 'DQM_V0001_R000000001__RelVal%s__%s-%s__DQMIO.root' % (self.get_attribute('dataset_name'), self.get_attribute('cmssw_release'), self.get_attribute('sequences')[sequence_index]["conditions"])
+               filename_dqm = 'DQM_V0001_R000000001__RelVal%s__%s-%s__DQMIO.root' % (self.get_attribute('dataset_name'), self.get_attribute('cmssw_release'), self.get_attribute('sequences')[0]["conditions"])
                infile += 'mv DQM_V0001_R000000001__Global__CMSSW_X_Y_Z__RECO.root %s\n' % (filename_dqm)
                infile += 'source /afs/cern.ch/cms/PPD/PdmV/tools/subSetupAuto.sh \n'
                infile += 'wget https://raw.githubusercontent.com/rovere/dqmgui/index128/bin/visDQMUpload\n'
