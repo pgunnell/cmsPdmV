@@ -603,7 +603,11 @@ testApp.directive("customValidationEdit", function(){
     '      </div>'+
     '      <div class="control-group" ng-show="validation_data.valid">' +
     '        Validation Content:'+       
+<<<<<<< HEAD
     '        <select  ng-model="validation_data.content" ng-options="dqmcontent for dqmcontent in ["all","DY","Top","W","Higgs","QCD"]"></select>'+ 
+=======
+    '        <select  ng-model="validation_data.content" ng-options="dqmcontent for dqmcontent in [\'all\',\'DY\',\'Top\',\'W\',\'Higgs\',\'QCD\']"></select>'+ 
+>>>>>>> e912795c953899dbbae2720e44f43fa8bf7bd134
     //'        nEvents:'+
     //'        <input type="number"  ng-model="validation_data.nEvents" ng-disabled="not_editable_list.indexOf(\'Validation\')!=-1">'+
     '      </div>'+
